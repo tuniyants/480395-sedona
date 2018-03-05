@@ -24,41 +24,35 @@
         <!-- <h2 class="hidden">Фильтр поиска жилья</h2> -->
         <!-- Здесь будет форма -->
       </section>
-      <table class="search-result">
-        <thead>
-          <tr>
-            <td class="found">
-              Найдено: 3
-            </td>
-            <td class="sort-by-type">
-              Сортировка:
-              <ul>
-                <li class="current-sort-type"><a href="#">По цене</a></li>
-                <li><a href="#">По типу</a></li>
-                <li><a href="#">По рейтингу</a></li>
-              </ul>
-            </td>
-            <td class="sort-by-order">
-              <ul>
-                <li><a href="#">По возрастанию</a></li>
-                <li class="current-sort-order"><a href="#">По убыванию</a></li>
-              </ul>
-            </td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="house-image">
+      <section class="search-results">
+        <div class="search-results-sorting">
+          <span class="found">Найдено: 3</span>
+          <div class="sort-filters">
+            Сортировка:
+            <ul class="sort-by-type">
+              <li class="current-sort-type"><a href="#">По цене</a></li>
+              <li><a href="#">По типу</a></li>
+              <li><a href="#">По рейтингу</a></li>
+            </ul>
+            <ul class="sort-by-order">
+              <li><a href="#">По возрастанию</a></li>
+              <li class="current-sort-order"><a href="#">По убыванию</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="search-results-content">
+          <div class="search-result">
+            <div class="house-image">
               <img src="img/#" alt="Гостиница Amara Resort & Spa">
-            </td>
-            <td class="house-description">
-              <div class="name">Amara Resort &#38; Spa</div>
-              <div class="type">Гостиница</div>
-              <div class="price">От 4000 р.</div>
+            </div>
+            <div class="house-description">
+              <h3 class="name">Amara Resort &#38; Spa</h3>
+              <span class="type">Гостиница</span>
+              <span class="price">От 4000 р.</span>
               <a class="button btn-description" href="#">Подробнее</a>
               <a class="button btn-reserve" href="#">Забронировать</a>
-            </td>
-            <td class="house-review">
+            </div>
+            <div class="house-review">
               <div class="stars">
                 <span class="star">*</span>
                 <span class="star">*</span>
@@ -68,20 +62,20 @@
               <div class="rate">
                 <span>Рейтинг: 8,5</span>
               </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="house-image">
+            </div>
+          </div>
+          <div class="search-result">
+            <div class="house-image">
               <img src="img/#" alt="Desert Quail Inn">
-            </td>
-            <td class="house-description">
-              <div class="name">Desert Quail Inn</div>
-              <div class="type">Мотель</div>
-              <div class="price">От 3000 р.</div>
+            </div>
+            <div class="house-description">
+              <h3 class="name">Desert Quail Inn</h3>
+              <span class="type">Мотель</span>
+              <span class="price">От 3000 р.</span>
               <a class="button btn-description" href="#">Подробнее</a>
               <a class="button btn-reserve" href="#">Забронировать</a>
-            </td>
-            <td class="house-review">
+            </div>
+            <div class="house-review">
               <div class="stars">
                 <span class="star">*</span>
                 <span class="star">*</span>
@@ -90,20 +84,20 @@
               <div class="rate">
                 <span>Рейтинг: 8,9</span>
               </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="house-image">
+            </div>
+          </div>
+          <div class="search-result">
+            <div class="house-image">
               <img src="img/#" alt="Villas at Poco Diablo">
-            </td>
-            <td class="house-description">
-              <div class="name">Villas at Poco Diablo</div>
-              <div class="type">Апартаменты</div>
-              <div class="price">От 2000 р.</div>
+            </div>
+            <div class="house-description">
+              <h3 class="name">Villas at Poco Diablo</h3>
+              <span class="type">Апартаменты</span>
+              <span class="price">От 2000 р.</span>
               <a class="button btn-description" href="#">Подробнее</a>
               <a class="button btn-reserve" href="#">Забронировать</a>
-            </td>
-            <td class="house-review">
+            </div>
+            <div class="house-review">
               <div class="stars">
                 <span class="star">*</span>
                 <span class="star">*</span>
@@ -111,10 +105,10 @@
               <div class="rate">
                 <span>Рейтинг: 9,2</span>
               </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
     <footer class="main-footer">
       <div class="footer-hashtag">
@@ -128,7 +122,7 @@
         </ul>
       </div>
       <div class="footer-copyright">
-        <b>Website by</b>
+        <span>Website by</span>
         <a href="https://htmlacademy.ru">
           <img src="img/#" alt="HTML Academy">
         </a>
