@@ -18,23 +18,25 @@
         </ul>
       </nav>
     </header>
+
     <main class="container">
-      <!-- <h1 class="hidden">Добро пожаловать в Седону</h1> -->
+      <h1 class="visually-hidden">Седона</h1>
       <section class="hero">
-          <img src="img/welcome-to-sedona.png" width="458" height="352" alt="Добро пожаловать в великолепную Седону">
+        <img src="img/welcome-to-sedona.png" width="458" height="352" alt="Добро пожаловать в великолепную Седону">
       </section>
       <section class="intro">
+        <h2 class="visually-hidden">Добро пожаловать</h2>
         <p class="title">Седона&#32;– небольшой городок в Аризоне, заслуживающий большего!</p>
         <p class="description">Рассмотрим 5 причин, по которым Седона круче, чем Гранд Каньон!</p>
       </section>
       <section class="features">
-        <!-- <h2 class="hidden">Преимущества</h2> -->
-        <ul class="features-list">
+        <h2 class="visually-hidden">Преимущества</h2>
+        <ol class="features-list">
           <li class="first-feature">
             <h3 class="title-white">Настоящий городок</h3>
             <span class="num-white">&#8470;1</span>
             <p class="description-white">Седона&#32;– не&#32;аттракцион для туристов, там течет своя жизнь</p>
-            <!-- <h4 class="hidden">Особенности городка</h4> -->
+            <h4 class="visually-hidden">Особенности городка</h4>
             <ul class="first-features-properties">
               <li class="house">
                 <h5 class="title">Жилье</h5>
@@ -70,39 +72,67 @@
             <span class="num">&#8470;5</span>
             <p class="description">Большинство едет в Кранд Каньон и толпится там</p>
           </li>
-        </ul>
+        </ol>
       </section>
       <section class="search">
         <div class="call-to-action">
           <h2>Заинтересовались?</h2>
           <p class="description">Укажите предполагаемые даты поездки, и мы покажем вам лучшие предложения гостиниц в Седоне</p>
-          <span class="button search-form-popup">Поиск гостиницы в Седоне</span>
+          <button class="button button-lg search-form-popup" type="button">Поиск гостиницы в Седоне</button>
         </div>
         <div class="google-map">
-          <!-- Здесь будет Google-карта -->
+          <!-- Здесь будет интерактивная карта Google -->
         </div>
       </section>
     </main>
+
     <footer class="main-footer">
       <div class="footer-hashtag">
         &#35;Visitsedona
       </div>
       <div class="footer-social">
         <ul>
-          <li><a class="social-button social-tw" href="#">Twitter</a></li>
-          <li><a class="social-button social-fb" href="#">Facebook</a></li>
-          <li><a class="social-button social-yt" href="#">YouTube</a></li>
+          <li><a class="social-button social-tw" href="#" aria-label="Twitter">Twitter</a></li>
+          <li><a class="social-button social-fb" href="#" aria-label="Facebook">Facebook</a></li>
+          <li><a class="social-button social-yt" href="#" aria-label="YouTube">YouTube</a></li>
         </ul>
       </div>
       <div class="footer-copyright">
         <span>Website by</span>
-        <a href="https://htmlacademy.ru">
+        <a href="https://htmlacademy.ru/intensive/htmlcss">
           <img src="img/logo-htmlacademy.svg" width="115" height="41" alt="HTML Academy">
         </a>
       </div>
     </footer>
+
     <section class="modal modal-search-form">
-      <!-- Здесь будет форма -->
+      <h2 class="visually-hidden">Форма поиска гостиницы в Седоне</h2>
+      <form class="hotel-search-form" action="https://echo.htmlacademy.ru" method="post">
+        <div class="hotel-search-form-field">
+          <label for="arrival-date-field">Дата заезда:</label>
+          <input id="arrival-date-field" name="arrival-date" type="text" value="" placeholder="24 апреля 2017">
+          <button class="calendar" type="button">Открыть календарь для выбора даты</button>
+        </div>
+        <div class="hotel-search-form-field">
+          <label for="departure-date-field">Дата выезда:</label>
+          <input id="departure-date-field" name="departure-date" type="text" value="" placeholder="4 июля 2017">
+          <button class="button calendar" type="button">Открыть календарь для выбора даты</button>
+        </div>
+        <div class="hotel-search-form-field">
+          <label for="number-of-adults-field">Взрослые</label>
+          <input id="number-of-adults-field" name="adults" type="number" min="0" value="2">
+          <button class="button math-symbol-minus" type="button">Уменьшить</button>
+          <button class="button math-symbol-plus" type="button">Увеличить</button>
+        </div>
+        <div class="hotel-search-form-field">
+          <label for="number-of-children-field">Дети:</label>
+          <input id="number-of-children-field" name="children" type="number" min="0" value="0">
+          <button class="button math-symbol-minus" type="button">Уменьшить</button>
+          <button class="button math-symbol-plus" type="button">Увеличить</button>
+        </div>
+        <button class="button button-lg hotel-search-submit" type="submit">Найти</button>
+      </form>
     </section>
+
   </body>
 </html>
