@@ -24,9 +24,9 @@
       <section class="search-filters">
         <h2 class="visually-hidden">Фильтр поиска жилья</h2>
         <form class="search-filters-form" action="https://echo.htmlacademy.ru" method="get">
-          <fieldset class="infrastructure-group">
+          <fieldset class="form-group">
             <legend>Инфраструктура:</legend>
-            <ul class="infrastructure-list">
+            <ul class="form-group-items">
               <li>
                 <input checked id="infrastructure-type-pool" name="infrastructure" type="checkbox" value="pool">
                 <label for="infrastructure-type-pool">Бассейн</label>
@@ -44,9 +44,9 @@
               </li>
             </ul>
           </fieldset>
-          <fieldset class="house-type-group">
+          <fieldset class="form-group">
             <legend>Тип жилья:</legend>
-            <ul class="house-type-list">
+            <ul class="form-group-items">
               <li>
                 <input checked id="house-type-hotel" name="house-type" type="checkbox" value="hotel">
                 <label for="house-type-hotel">Гостиница</label>
@@ -64,9 +64,23 @@
               </li>
             </ul>
           </fieldset>
-          <fieldset class="price-range-group">
+          <fieldset class="form-group">
             <legend>Стоимость в сутки (р):</legend>
-            <!-- Настя, помоги! :) -->
+            <div class="num-range">
+              <div class="num-range-field">
+                <span>От</span>
+                <input name="price-from" type="number" min="0" max="4000" value="0">
+              </div>
+              <div class="num-range-field">
+                <span>До</span>
+                <input name="price-to" type="number" min="1" max="4000" value="3000">
+              </div>
+            </div>
+            <div class="slider">
+              <div class="slider-range" style=""></div>
+              <span class="slider-handle state-default" tabindex="0" style=""></span>
+              <span class="slider-handle state-default" tabindex="0" style=""></span>
+            </div>
           </fieldset>
           <button class="search-filters-submit" type="submit">Показать</button>
         </form>
@@ -162,13 +176,11 @@
       <div class="footer-hashtag">
         &#35;Visitsedona
       </div>
-      <div class="footer-social">
-        <ul>
-          <li><a class="social-button social-tw" href="#" aria-label="Twitter">Twitter</a></li>
-          <li><a class="social-button social-fb" href="#" aria-label="Facebook">Facebook</a></li>
-          <li><a class="social-button social-yt" href="#" aria-label="YouTube">YouTube</a></li>
-        </ul>
-      </div>
+      <ul class="footer-social">
+        <li><a class="social-button social-tw" href="#" aria-label="Twitter">Twitter</a></li>
+        <li><a class="social-button social-fb" href="#" aria-label="Facebook">Facebook</a></li>
+        <li><a class="social-button social-yt" href="#" aria-label="YouTube">YouTube</a></li>
+      </ul>
       <div class="footer-copyright">
         <span>Website by</span>
         <a href="https://htmlacademy.ru/intensive/htmlcss">
