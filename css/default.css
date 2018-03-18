@@ -1,0 +1,646 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=cyrillic');
+
+body {
+  margin: 0;
+  padding: 0;
+
+  font-family: 'PT Sans', Arial, sans-serif;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 400;
+  color: #333333;
+  text-transform: uppercase;
+
+  background-color: #f2f2f2;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Скрывает скрытые заголовки */
+.visually-hidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+}
+
+.layout {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  background-color: #ffffff;
+}
+
+/* Кнопки */
+
+.button {
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: bold;
+  color: #ffffff;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  display: inline-block;
+
+  padding: 0;
+  margin: 0;
+
+  border: none;
+}
+
+.button-lg {
+  font-size: 21px;
+  line-height: 26px;
+}
+
+.button-sm {
+  padding: 0 17px;
+  line-height: 27px;
+}
+
+.button-coffee {
+  background-color: #766357;
+}
+
+.button-coffee:hover,
+.button-coffee:focus {
+  background-color: #604e43;
+  outline: 0;
+}
+
+.button-coffee:active {
+  background-color: #503e33;
+  color: rgba(255, 255, 255, 0.3);
+  outline: 0;
+}
+
+.button-seagull {
+  background-color: #81b3d2;
+}
+
+.button-seagull:hover,
+.button-seagull:focus {
+  background-color: #669ec0;
+  outline: 0;
+}
+
+.button-seagull:active {
+  background-color: #5496bd;
+  color: rgba(255, 255, 255, 0.3);
+  outline: 0;
+}
+
+/* Подготовка основного текста */
+
+.title {
+  font-size: 21px;
+  line-height: 21px;
+  font-weight: bold;
+  color: #000000;
+}
+
+.description {
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 400;
+  color: #333333;
+}
+
+.num {
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 400;
+  color: #333333;
+}
+
+.num::before {
+  content: '\2014\00a0';
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 400;
+  color: #333333;
+}
+
+.num::after {
+  content: '\00a0\2014';
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 400;
+  color: #333333;
+}
+
+/* Хэдер */
+
+.main-navigation {
+  font-size: 14px;
+  line-height: 26px;
+  font-weight: bold;
+  color: #000000;
+
+  background-color: #ffffff;
+}
+
+.site-navigation {
+  list-style: none;
+}
+
+.site-navigation a {
+  color: #000000;
+}
+
+.site-navigation a:hover {
+  color: #81b3d2;
+}
+
+.site-navigation a:active {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.site-navigation a.site-navigation-current {
+  color: #766357;
+}
+
+/* Hero */
+
+.hero {
+  /* Иногда пробую флекс-боксы, но очень редко, потому что до этой лекции я ещё не дошел */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 512px;
+
+  background-color: #9fc3db;
+  background: url("../img/mask-res1200.png") bottom no-repeat, /* ! с маской что-то не так: 1px слева серый, 1px справа и снизу прозрачные */
+              url("../img/hero-background-res1200.jpg") 0 -57px no-repeat;
+}
+
+/* Intro */
+
+.intro {
+  /* height: 216px; */
+}
+
+.intro .title,
+.intro .description {
+  line-height: 26px;
+  text-align: center;
+}
+
+/* Преимущества */
+
+ol.features-list,
+ul.feature-item-properties {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.feature-item-seagull {
+  background-color: #81b3d2;
+}
+
+.feature-item-grey {
+  background-color: #eeeeee;
+}
+
+.feature-item-seagull .title,
+.feature-item-seagull .description,
+.feature-item-seagull .num,
+.feature-item-seagull .num::before,
+.feature-item-seagull .num::after {
+  color: #ffffff;
+}
+
+.feature-item-grey .title {
+  color: #000000;
+}
+.feature-item-grey .description {
+  color: #333333;
+}
+
+/* Приглашение поискать гостиницу */
+
+.call-to-action {
+  text-align: center;
+}
+
+.call-to-action h2 {
+  font-size: 30px;
+  line-height: 36px;
+  font-weight: bold;
+  color: #000000;
+}
+
+.call-to-action .description {
+  line-height: 24px;
+}
+
+.call-to-action button {
+  line-height: 86px;
+  width: 568px;
+}
+
+.google-map {
+  height: 593px;
+  background-color: #cad7a6;
+  background-image: url("../img/map.png");
+  background-position: bottom;
+  background-repeat: no-repeat;
+}
+
+/* Футер */
+
+.main-footer {
+  /* height: 120px; */
+}
+
+.footer-hashtag {
+  font-size: 21px;
+  line-height: 26px;
+  font-weight: bold;
+  color: #000000;
+}
+
+ul.footer-social {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* С этого момента я возненавидел то, что делаю */
+
+.social-split {
+  display: none;
+}
+
+.social-split path {
+  fill: #ffffff;
+}
+
+.footer-social .social-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  width: 46px;
+  height: 48px;
+
+  background-color: #81b3d2;
+}
+
+.social-tw svg {
+  width: 17px;
+  height: 15px;
+}
+
+.social-fb svg {
+  width: 12px;
+  height: 22px;
+}
+
+.social-yt svg {
+  width: 20px;
+  height: 16px;
+}
+
+.social-button:hover {
+  background-color: #669ec0;
+}
+
+.social-button:hover svg {
+  fill: #ffffff;
+}
+
+.social-button:active {
+  background-color: #5496bd;
+}
+
+.social-button:active svg {
+  fill: #ffffff;
+  fill-opacity: 0.3;
+}
+
+.footer-copyright span {
+  font-size: 14px;
+  line-height: 26px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #000000;
+}
+
+.footer-copyright a path {
+  fill: #231f20;
+}
+
+.footer-copyright a:hover path {
+  fill: #81b3d2;
+}
+
+.footer-copyright a:active path {
+  fill: #bdbbbc;
+}
+
+/* Модалка с формой на главной */
+
+.modal-hotel-search-form {
+
+}
+
+.hotel-search-form {
+  width: 568px;
+
+  margin: 0 auto;
+  padding: 55px;
+
+  background-color: #ffffff;
+}
+
+.hotel-search-form .form-field {
+  /* height: 38px; */
+}
+
+.hotel-search-form button[type="submit"] {
+  line-height: 58px;
+  width: 100%;
+}
+
+.hotel-search-form label {
+  font-size: 14px;
+  line-height: 26px;
+  font-weight: bold;
+  color: #000000;
+  text-transform: uppercase;
+
+  padding: 0;
+  margin: 0;
+}
+
+.hotel-search-form input {
+  font-size: 14px;
+  line-height: 26px;
+  font-weight: bold;
+  color: #000000;
+  text-transform: uppercase;
+
+  padding: 0;
+  margin: 0;
+
+  border: 2px solid #f2f2f2;
+
+  background-color: #f2f2f2;
+}
+
+.hotel-search-form input[type="text"]:hover {
+  border: 2px solid #ebebeb;
+  background-color: #ebebeb;
+}
+
+.hotel-search-form input[type="text"]:focus {
+  background-color: #ffffff;
+  border: 2px solid #e5e5e5;
+  outline: 0;
+}
+
+button.calendar-icon {
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+
+  width: 21px;
+  height: 22px;
+
+  /* SVG пропадает, когда появляются свойства с этими значениями, поэтому пока закомментировал */
+  /* border: none;
+  background: none; */
+}
+
+/*  Это не работает */
+
+button.calendar-icon svg {
+  width: 21px;
+  height: 22px;
+  fill: #cacaca;
+}
+
+button.calendar-icon:hover svg {
+  fill: #000000;
+}
+
+button.calendar-icon:active svg {
+  fill: #81b3d2;
+}
+
+/* Конец это не работает */
+
+.hotel-search-form button.input-control,
+.hotel-search-form input[type="number"] {
+  width: 38px;
+  height: 38px;
+
+  font-size: 14px;
+  line-height: 26px;
+
+  border: 0;
+
+  padding: 0;
+  margin: 0;
+
+  background-color: #f2f2f2;
+}
+
+.hotel-search-form input[type="number"] {
+  outline: 0;
+}
+
+/* Что-то не так с SVG в контролах. Размер смотрел в макете */
+.input-control.math-symbol-minus svg {
+  width: 12px;
+  height: 3px;
+}
+
+.input-control.math-symbol-plus svg {
+  width: 11px;
+  height: 11px;
+}
+
+/* Конец что-то не так */
+
+.input-control svg {
+  stroke: #a9a9a9;
+}
+
+.input-control:focus {
+  outline: 0;
+}
+
+.input-control:hover svg {
+  stroke: #000000;
+}
+
+.input-control:active svg {
+  stroke: #81b3d2;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Форма поиска с фильтрами */
+
+button.search-filters-submit {
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 400;
+  color: #ffffff;
+
+  border: 2px solid #ffffff;
+  border-radius: 2px;
+
+  /* Фон у кнопки прозрачный. Как быть? */
+}
+
+button.search-filters-submit:hover,
+button.search-filters-submit:focus {
+  color: #000000;
+  background-color: #ffffff;
+}
+
+.search-result-item h3 {
+  font-size: 21px;
+  line-height: 26px;
+  font-weight: bold;
+  color: #000000;
+}
+
+.search-result-item h3:hover {
+  color: #81b3d2;
+}
+
+.search-result-item h3:active {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+.search-results .found {
+  font-size: 21px;
+  line-height: 26px;
+  font-weight: bold;
+  color: #000000;
+}
+
+.search-results .sort-filters {
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 400;
+  color: #000000;
+}
+
+.sort-filters ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.sort-by-type a {
+  color: #b2b2b2;
+  border-bottom: 1px dotted #81b3d2;
+}
+
+.current-sort-type a {
+  color: #81b3d2;
+  border-bottom: 0;
+}
+
+.sort-by-type a:hover {
+  color: #81b3d2;
+  border-bottom: 1px dotted #81b3d2;
+}
+
+.sort-by-type a:active {
+  color: #000000;
+  border-bottom: 0;
+}
+
+/* Почему-то не работает */
+
+.sort-by-order svg {
+  width: 11px;
+  height: 10px;
+  fill: #b2b2b2;
+}
+
+.current-sort-order svg {
+  fill: #81b3d2;
+}
+
+.sort-by-order a:hover svg {
+  fill: #000000;
+}
+
+.sort-by-order a:active svg {
+  fill: #b2b2b2;
+}
+
+/* Конец почему-то не работает */
+
+/* Сомневаюсь, что такая реализация правильная */
+.star {
+  width: 18px;
+  height: 17px;
+
+  display: inline-block;
+
+  margin-right: 5px;
+
+  background-image: url("../img/star.svg");
+  background-position: 0 0;
+  background-size: 18px 17px;
+  background-repeat: no-repeat;
+}
+
+.star:last-child {
+  margin-right: 0;
+}
+
+/* Конец сомнениям */
+
+.rate {
+  background-color: #f2f2f2;
+  display: inline-block;
+}
+
+.rate span {
+  font-size: 14px;
+  line-height: 27px;
+  color: #666666;
+
+  padding: 0 16px 0 13px;
+  margin: 0;
+}
