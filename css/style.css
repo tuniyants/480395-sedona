@@ -30,7 +30,10 @@ a {
 
 .layout {
   max-width: 1200px;
+  min-width: 768px;
   margin: 0 auto;
+
+  position: relative;
 
   background-color: #ffffff;
 }
@@ -143,10 +146,24 @@ a {
   color: #000000;
 
   background-color: #ffffff;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+  height: 56px;
 }
 
 .site-navigation {
   list-style: none;
+
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .site-navigation a {
@@ -165,25 +182,69 @@ a {
   color: #766357;
 }
 
+.main-navigation > a,
+.main-navigation > ul {
+  flex-basis: 0;
+}
+
+.site-navigation.col-one {
+  order: 1;
+  flex-grow: 239;
+}
+
+.site-navigation.col-two {
+  order: 3;
+  flex-grow: 239;
+}
+
+.main-header-logo {
+  text-align: center;
+
+  order: 2;
+  flex-grow: 122;
+
+  z-index: 1;
+}
+
 /* Hero */
 
 .hero {
-  /* Иногда пробую флекс-боксы, но очень редко, потому что до этой лекции я ещё не дошел */
   display: flex;
   justify-content: center;
   align-items: center;
 
+  position: relative;
   height: 512px;
+  background: #9fc3db url("../img/hero-background-res1200.jpg") 0 -57px no-repeat;
+}
 
-  background-color: #9fc3db;
-  background: url("../img/mask-res1200.png") bottom no-repeat, /* ! с маской что-то не так: 1px слева серый, 1px справа и снизу прозрачные */
-              url("../img/hero-background-res1200.jpg") 0 -57px no-repeat;
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  height: 100%;
+  max-height: 57px; /* Кажется, это свойство здесь ни к чему, но я очень хотел, чтобы обводка внешней границы смотрелась кашерно :) */
+
+  background-image: url("../img/mask-res1200.png"); /* Перезалил, но проблема с 1px слева и 1px снизу при zoom+ осталась */
+  background-position: bottom;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  /* outline: 2px dashed #999999; */
 }
 
 /* Intro */
 
 .intro {
-  /* height: 216px; */
+  /* Высота этого блока в полноразмерной версии: 216px, в резине — 211px. А как ещё при этом учитывать внутренние элементы? */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  outline: 2px dashed red;
 }
 
 .intro .title,
@@ -192,42 +253,102 @@ a {
   text-align: center;
 }
 
+.intro .title {
+  white-space: pre-line;
+
+  margin: 0;
+  padding: 0;
+}
+
+.intro .description {
+  margin: 0;
+  padding: 0;
+}
+
 /* Преимущества */
+
+.features {
+  display: flex;
+  flex-direction: column;
+
+  outline: 2px dashed red;
+}
 
 ol.features-list,
 ul.feature-item-properties {
   margin: 0;
   padding: 0;
   list-style: none;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
-.feature-item-seagull {
+.feature-item {
+  text-align: center;
+
+  max-width: 400px;
+  min-width: 236px;
+  height: 256px;
+
+  margin: 0;
+  /* padding: 20px; */
+
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  flex-basis: 236px;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.feature-item-lg {
+  flex-grow: 1;
+
   background-color: #81b3d2;
 }
 
-.feature-item-grey {
+.feature-item-sm {
   background-color: #eeeeee;
 }
 
-.feature-item-seagull .title,
-.feature-item-seagull .description,
-.feature-item-seagull .num,
-.feature-item-seagull .num::before,
-.feature-item-seagull .num::after {
+.feature-item-lg .title,
+.feature-item-lg .description,
+.feature-item-lg .num,
+.feature-item-lg .num::before,
+.feature-item-lg .num::after {
   color: #ffffff;
 }
 
-.feature-item-grey .title {
+.feature-item-sm .title {
   color: #000000;
 }
-.feature-item-grey .description {
+.feature-item-sm .description {
   color: #333333;
 }
 
 /* Приглашение поискать гостиницу */
 
+.search {
+  display: flex;
+  flex-direction: column;
+
+  outline: 2px dashed #999999;
+}
+
 .call-to-action {
+  height: 290px;
   text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  box-sizing: border-box;
 }
 
 .call-to-action h2 {
@@ -235,19 +356,29 @@ ul.feature-item-properties {
   line-height: 36px;
   font-weight: bold;
   color: #000000;
+
+  margin-top: 50px;
 }
 
 .call-to-action .description {
   line-height: 24px;
+  white-space: pre-line;
+
+  outline: 2px dashed #999999;
 }
 
 .call-to-action button {
   line-height: 86px;
   width: 568px;
+
+  margin: 0;
+  padding: 0;
+
+  margin: auto auto 0 auto;
 }
 
 .google-map {
-  height: 593px;
+  height: 594px;
   background-color: #cad7a6;
   background-image: url("../img/map.png");
   background-position: bottom;
@@ -257,7 +388,33 @@ ul.feature-item-properties {
 /* Футер */
 
 .main-footer {
-  /* height: 120px; */
+  height: 120px;
+  width: 100%;
+
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  background-color: rgba(255, 255, 255, 0.9);
+
+  z-index: 1;
+
+  outline: 2px dashed #999999;
+}
+
+
+.main-footer.inner-page {
+  position: relative;
+
+  background-color: #ffffff;
+}
+
+.main-footer > div,
+.main-footer > ul {
+  flex-basis: 0;
 }
 
 .footer-hashtag {
@@ -265,15 +422,30 @@ ul.feature-item-properties {
   line-height: 26px;
   font-weight: bold;
   color: #000000;
+  text-align: center;
+
+  flex-grow: 1;
+
+  /* outline: 2px dashed #999999; */
 }
 
 ul.footer-social {
   margin: 0;
   padding: 0;
   list-style: none;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+
+  outline: 2px dashed #999999;
 }
 
-/* С этого момента я возненавидел то, что делаю */
+ul.footer-social li:not(:last-child) {
+  margin-right: 6px;
+}
 
 .social-split {
   display: none;
@@ -327,12 +499,27 @@ ul.footer-social {
   fill-opacity: 0.3;
 }
 
+.footer-copyright {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+
+  /* outline: 2px dashed #999999; */
+}
+
 .footer-copyright span {
   font-size: 14px;
   line-height: 26px;
   font-weight: 400;
   text-transform: uppercase;
   color: #000000;
+  margin-right: 8px;
+}
+
+.footer-copyright svg {
+  vertical-align: middle;
 }
 
 .footer-copyright a path {
@@ -350,41 +537,47 @@ ul.footer-social {
 /* Модалка с формой на главной */
 
 .modal-hotel-search-form {
+  width: 100%;
+  bottom: 161px;
+  margin: 0 auto;
 
+  position: absolute;
 }
 
 .hotel-search-form {
   width: 568px;
-
   margin: 0 auto;
   padding: 55px;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 
   background-color: #ffffff;
 }
 
 .hotel-search-form .form-field {
-  /* height: 38px; */
+  height: 38px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex: 0 0 100%;
+
+  position: relative;
+
+  /* outline: 2px dashed #999999; */
 }
 
-.hotel-search-form button[type="submit"] {
-  line-height: 58px;
-  width: 100%;
-}
-
-.hotel-search-form label {
-  font-size: 14px;
-  line-height: 26px;
-  font-weight: bold;
-  color: #000000;
-  text-transform: uppercase;
-
-  padding: 0;
-  margin: 0;
+.hotel-search-form .form-field-half {
+  flex: 0 1 50%;
+  outline: 2px dashed red;
 }
 
 .hotel-search-form input {
   font-size: 14px;
-  line-height: 26px;
+  /* line-height: 26px; */
   font-weight: bold;
   color: #000000;
   text-transform: uppercase;
@@ -395,6 +588,50 @@ ul.footer-social {
   border: 2px solid #f2f2f2;
 
   background-color: #f2f2f2;
+}
+
+.hotel-search-form .input-lg {
+  height: 100%;
+
+  box-sizing: border-box;
+  padding-left: 13px;
+
+  flex-grow: 1;
+}
+
+.hotel-search-form .form-field:first-child {
+  margin-bottom: 29px;
+}
+
+.hotel-search-form .form-field:nth-child(2) {
+  margin-bottom: 30px;
+}
+
+.hotel-search-form label {
+  font-size: 14px;
+  /* line-height: 26px; */
+  font-weight: bold;
+  color: #000000;
+  text-transform: uppercase;
+
+  padding: 0;
+  margin: 0;
+}
+
+.hotel-search-form .form-field label[for="arrival-date-field"] {
+  margin-right: 21px;
+}
+
+.hotel-search-form .form-field label[for="departure-date-field"] {
+  margin-right: 17px;
+}
+
+.hotel-search-form .form-field label[for="number-of-adults-field"] {
+  margin-right: 41px;
+}
+
+.hotel-search-form .form-field label[for="number-of-children-field"] {
+  margin-right: 27px;
 }
 
 .hotel-search-form input[type="text"]:hover {
@@ -408,6 +645,38 @@ ul.footer-social {
   outline: 0;
 }
 
+.hotel-search-form .form-field-half > button,
+.hotel-search-form .form-field-half > input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hotel-search-form .form-field-half .math-symbol-minus {
+  order: 1;
+}
+
+.hotel-search-form .form-field-half input {
+  order: 2;
+}
+
+.hotel-search-form .form-field-half input::-webkit-outer-spin-button,
+.hotel-search-form .form-field-half input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.hotel-search-form .form-field-half .math-symbol-plus {
+  order: 3;
+}
+
+.hotel-search-form button[type="submit"] {
+  line-height: 58px;
+  width: 100%;
+  margin-top: 54px;
+}
+
 button.calendar-icon {
   margin: 0;
   padding: 0;
@@ -416,12 +685,17 @@ button.calendar-icon {
   width: 21px;
   height: 22px;
 
-  /* SVG пропадает, когда появляются свойства с этими значениями, поэтому пока закомментировал */
-  /* border: none;
-  background: none; */
-}
+  position: absolute;
+  right: 9px;
 
-/*  Это не работает */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 0;
+  background: 0;
+  outline: 2px dashed red;
+}
 
 button.calendar-icon svg {
   width: 21px;
@@ -437,8 +711,6 @@ button.calendar-icon:active svg {
   fill: #81b3d2;
 }
 
-/* Конец это не работает */
-
 .hotel-search-form button.input-control,
 .hotel-search-form input[type="number"] {
   width: 38px;
@@ -448,18 +720,19 @@ button.calendar-icon:active svg {
   line-height: 26px;
 
   border: 0;
-
   padding: 0;
   margin: 0;
 
   background-color: #f2f2f2;
 }
 
-.hotel-search-form input[type="number"] {
+.hotel-search-form .input-control:active,
+.hotel-search-form .input-control:focus,
+.hotel-search-form .calendar-icon:active,
+ .hotel-search-form .calendar-icon:focus {
   outline: 0;
 }
 
-/* Что-то не так с SVG в контролах. Размер смотрел в макете */
 .input-control.math-symbol-minus svg {
   width: 12px;
   height: 3px;
@@ -470,14 +743,12 @@ button.calendar-icon:active svg {
   height: 11px;
 }
 
-/* Конец что-то не так */
-
 .input-control svg {
   stroke: #a9a9a9;
 }
 
 .input-control:focus {
-  outline: 0;
+  /* outline: 0; */
 }
 
 .input-control:hover svg {
@@ -487,6 +758,11 @@ button.calendar-icon:active svg {
 .input-control:active svg {
   stroke: #81b3d2;
 }
+
+
+/*
+  ====== Каталог ======
+*/
 
 /* Результаты поиска */
 
