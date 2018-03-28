@@ -14,11 +14,9 @@
           <a class="main-header-logo">
             <img src="img/logo-sedona.png" width="138" height="70" alt="Логотип Седоны">
           </a>
-          <ul class="site-navigation col-one">
+          <ul class="site-navigation">
             <li><a href="info.html">Информация</a></li>
             <li><a href="media.html">Фото и видео</a></li>
-          </ul>
-          <ul class="site-navigation col-two">
             <li><a href="map.html">Карта штата</a></li>
             <li><a href="catalog.html">Гостиницы</a></li>
           </ul>
@@ -40,59 +38,125 @@
 
         <section class="features">
           <h2 class="visually-hidden">Преимущества</h2>
-          <ol class="features-list">
-            <li class="feature-item feature-item-lg">
-              <h3 class="title">Настоящий городок</h3>
-              <span class="num">&#8470;1</span>
-              <p class="description">Седона&#32;– не&#32;аттракцион для туристов, там течет своя жизнь</p>
-            </li>
-            <li class="feature-item feature-item-lg">
-              <h3 class="title">Там есть мост Дьявола</h3>
-              <span class="num">&#8470;2</span>
-              <p class="description">Да, по нему можно пройти! Если конечно вы осмелитесь</p>
-            </li>
-            <li class="feature-item feature-item-sm">
-              <h3 class="title">Небольшая площадь</h3>
+          <div class="features-row">
+            <div class="features-item">
+              <h3 class="title white-color">Настоящий
+                городок</h3>
+              <span class="num white-color">&#8470;1</span>
+              <p class="description white-color">Седона&#32;– не&#32;аттракцион для туристов,
+                там течет своя жизнь</p>
+            </div>
+            <div class="features-image"></div>
+          </div>
+          <div class="features-row">
+            <div class="features-item">
+              <h3 class="title white-color">Там есть
+                мост Дьявола</h3>
+              <span class="num white-color">&#8470;2</span>
+              <p class="description white-color">Да, по нему можно пройти! Если конечно
+                вы осмелитесь</p>
+            </div>
+            <div class="features-image"></div>
+          </div>
+          <div class="features-row">
+            <div class="features-item">
+              <h3 class="title">Небольшая
+                площадь</h3>
               <span class="num">&#8470;3</span>
-              <p class="description">Все достопримечательности находятся очень близко</p>
-            </li>
-            <li class="feature-item feature-item-sm">
-              <h3 class="title">Красивая дорога</h3>
+              <p class="description">Все достопримечательности
+                находятся очень близко</p>
+            </div>
+            <div class="features-item">
+              <h3 class="title">Красивая
+                дорога</h3>
               <span class="num">&#8470;4</span>
-              <p class="description">Ехать в Седону из Лас-Вегаса совсем не&#32;скучно!</p>
-            </li>
-            <li class="feature-item feature-item-sm">
-              <h3 class="title">Мало туристов</h3>
+              <p class="description">Ехать в Седону из Лас-Вегаса совсем
+                не&#32;скучно!</p>
+            </div>
+            <div class="features-item">
+              <h3 class="title">Мало
+                туристов</h3>
               <span class="num">&#8470;5</span>
-              <p class="description">Большинство едет в Кранд Каньон и толпится там</p>
-            </li>
-          </ol>
-          <h4 class="visually-hidden">Особенности городка</h4>
-          <ul class="feature-item-properties">
-            <li class="house">
+              <p class="description">Большинство едет в Кранд Каньон
+                и толпится там</p>
+            </div>
+          </div>
+          <ul class="features-row features-list">
+            <li class="features-list-item house">
               <h5 class="title">Жилье</h5>
               <p class="description">Рекомендуем пожить в настоящем мотеле, все как в кино!</p>
             </li>
-            <li class="food">
+            <li class="features-list-item food">
               <h5 class="title">Еда</h5>
               <p class="description">Всегда заказывайте фирменный бургер, вы не&#32;разочаруетесь!</p>
             </li>
-            <li class="gifts">
+            <li class="features-list-item gifts">
               <h5 class="title">Сувениры</h5>
               <p class="description">Не только китайского, но и местого производства!</p>
             </li>
           </ul>
         </section>
 
-        <section class="search">
+        <section class="search-container">
           <div class="call-to-action">
             <h2>Заинтересовались?</h2>
             <p class="description">Укажите предполагаемые даты поездки,
               и мы покажем вам лучшие предложения гостиниц в Седоне</p>
             <button class="button button-lg button-coffee" type="button">Поиск гостиницы в Седоне</button>
           </div>
-          <div class="google-map">
-            <iframe width="100%" height="594" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/view?zoom=12&center=34.8697%2C-111.7610&key=AIzaSyAeg9HKA5m4pS5d6KHKoqZQw0Kt9ENUFfY" allowfullscreen></iframe>
+          <div class="search-form">
+            <iframe class="map" width="100%" height="100%" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/view?zoom=12&center=34.8697%2C-111.7610&key=AIzaSyAeg9HKA5m4pS5d6KHKoqZQw0Kt9ENUFfY" allowfullscreen></iframe>
+            <form class="modal hotel-search-form" action="https://echo.htmlacademy.ru" method="post">
+              <div class="form-field">
+                <label for="arrival-date-field">Дата заезда:</label>
+                <input id="arrival-date-field" class="input-lg" name="arrival-date" type="text" value="24 апреля 2017">
+                <button class="calendar-icon" type="button">
+                  <svg>
+                    <use xlink:href="#calendar-icon"></use>
+                  </svg>
+                </button>
+              </div>
+              <div class="form-field">
+                <label for="departure-date-field">Дата выезда:</label>
+                <input id="departure-date-field" class="input-lg" name="departure-date" type="text" value="4 июля 2017">
+                <button class="calendar-icon" type="button">
+                  <svg>
+                    <use xlink:href="#calendar-icon"></use>
+                  </svg>
+                </button>
+              </div>
+              <div class="form-row">
+                <div class="form-field">
+                <label for="number-of-adults-field">Взрослые:</label>
+                  <input id="number-of-adults-field" name="adults" type="number" min="0" value="2">
+                  <button class="input-control math-symbol-minus" type="button">
+                    <svg>
+                      <use xlink:href="#math-symbol-minus"></use>
+                    </svg>
+                  </button>
+                  <button class="input-control math-symbol-plus" type="button">
+                    <svg>
+                      <use xlink:href="#math-symbol-plus"></use>
+                    </svg>
+                  </button>
+                </div>
+                <div class="form-field">
+                  <label for="number-of-children-field">Дети:</label>
+                  <input id="number-of-children-field" name="children" type="number" min="0" value="0">
+                  <button class="input-control math-symbol-minus" type="button">
+                    <svg>
+                      <use xlink:href="#math-symbol-minus"></use>
+                    </svg>
+                  </button>
+                  <button class="input-control math-symbol-plus" type="button">
+                    <svg>
+                      <use xlink:href="#math-symbol-plus"></use>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <button class="button button-lg button-seagull" type="submit">Найти</button>
+            </form>
           </div>
         </section>
 
@@ -135,59 +199,6 @@
           </a>
         </div>
       </footer>
-
-      <section class="modal modal-hotel-search-form">
-        <h3 class="visually-hidden">Форма поиска гостиницы в Седоне</h3>
-        <form class="modal hotel-search-form" action="https://echo.htmlacademy.ru" method="post">
-          <div class="form-field">
-            <label for="arrival-date-field">Дата заезда:</label>
-            <input id="arrival-date-field" class="input-lg" name="arrival-date" type="text" value="24 апреля 2017">
-            <button class="calendar-icon" type="button">
-              <svg>
-                <use xlink:href="#calendar-icon"></use>
-              </svg>
-            </button>
-          </div>
-          <div class="form-field">
-            <label for="departure-date-field">Дата выезда:</label>
-            <input id="departure-date-field" class="input-lg" name="departure-date" type="text" value="4 июля 2017">
-            <button class="calendar-icon" type="button">
-              <svg>
-                <use xlink:href="#calendar-icon"></use>
-              </svg>
-            </button>
-          </div>
-          <div class="form-field form-field-half">
-            <label for="number-of-adults-field">Взрослые:</label>
-            <input id="number-of-adults-field" name="adults" type="number" min="0" value="2">
-            <button class="input-control math-symbol-minus" type="button">
-              <svg>
-                <use xlink:href="#math-symbol-minus"></use>
-              </svg>
-            </button>
-            <button class="input-control math-symbol-plus" type="button">
-              <svg>
-                <use xlink:href="#math-symbol-plus"></use>
-              </svg>
-            </button>
-          </div>
-          <div class="form-field form-field-half">
-            <label for="number-of-children-field">Дети:</label>
-            <input id="number-of-children-field" name="children" type="number" min="0" value="0">
-            <button class="input-control math-symbol-minus" type="button">
-              <svg>
-                <use xlink:href="#math-symbol-minus"></use>
-              </svg>
-            </button>
-            <button class="input-control math-symbol-plus" type="button">
-              <svg>
-                <use xlink:href="#math-symbol-plus"></use>
-              </svg>
-            </button>
-          </div>
-          <button class="button button-lg button-seagull" type="submit">Найти</button>
-        </form>
-      </section>
 
       <div class="social-split">
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">

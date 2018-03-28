@@ -20,6 +20,7 @@ a {
 }
 
 /* Скрывает скрытые заголовки */
+
 .visually-hidden {
   position: absolute;
   clip: rect(0 0 0 0);
@@ -27,6 +28,8 @@ a {
   height: 1px;
   margin: -1px;
 }
+
+/* Управляет основным слоем */
 
 .layout {
   max-width: 1200px;
@@ -73,13 +76,13 @@ a {
 .button-coffee:hover,
 .button-coffee:focus {
   background-color: #604e43;
-  outline: 0;
+  outline: none;
 }
 
 .button-coffee:active {
   background-color: #503e33;
   color: rgba(255, 255, 255, 0.3);
-  outline: 0;
+  outline: none;
 }
 
 .button-seagull {
@@ -89,13 +92,13 @@ a {
 .button-seagull:hover,
 .button-seagull:focus {
   background-color: #669ec0;
-  outline: 0;
+  outline: none;
 }
 
 .button-seagull:active {
   background-color: #5496bd;
   color: rgba(255, 255, 255, 0.3);
-  outline: 0;
+  outline: none;
 }
 
 /* Подготовка основного текста */
@@ -105,6 +108,9 @@ a {
   line-height: 21px;
   font-weight: bold;
   color: #000000;
+
+  margin: 0;
+  padding: 0;
 }
 
 .description {
@@ -112,6 +118,11 @@ a {
   line-height: 21px;
   font-weight: 400;
   color: #333333;
+
+  margin: 0;
+  padding: 0;
+
+  width: 100%;  /* Беp этого свойства содержимое параграфа уходит за пределы контейнера в IE */
 }
 
 .num {
@@ -119,6 +130,9 @@ a {
   line-height: 21px;
   font-weight: 400;
   color: #333333;
+
+  margin: 0;
+  padding: 0;
 }
 
 .num::before {
@@ -127,6 +141,9 @@ a {
   line-height: 21px;
   font-weight: 400;
   color: #333333;
+
+  margin: 0;
+  padding: 0;
 }
 
 .num::after {
@@ -135,6 +152,15 @@ a {
   line-height: 21px;
   font-weight: 400;
   color: #333333;
+
+  margin: 0;
+  padding: 0;
+}
+
+.white-color,
+.white-color::before,
+.white-color::after {
+  color: #ffffff;
 }
 
 /* Хэдер */
@@ -152,6 +178,19 @@ a {
   flex-wrap: nowrap;
 
   height: 56px;
+  width: 100%;
+  padding: 0 6%;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.main-header-logo {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -69px;
+
+  z-index: 1;
 }
 
 .site-navigation {
@@ -162,8 +201,9 @@ a {
 
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
   align-items: center;
+
+  width: 100%;
 }
 
 .site-navigation a {
@@ -182,31 +222,29 @@ a {
   color: #766357;
 }
 
-.main-navigation > a,
-.main-navigation > ul {
-  flex-basis: 0;
+.site-navigation li {
+  flex-basis: 22%;
 }
 
-.site-navigation.col-one {
-  order: 1;
-  flex-grow: 239;
+.site-navigation li:first-child,
+.site-navigation li:nth-child(2) {
+  text-align: left;
 }
 
-.site-navigation.col-two {
-  order: 3;
-  flex-grow: 239;
+.site-navigation li:nth-child(3),
+.site-navigation li:last-child {
+  text-align: right;
 }
 
-.main-header-logo {
-  text-align: center;
-
-  order: 2;
-  flex-grow: 122;
-
-  z-index: 1;
+.site-navigation li:nth-child(2) {
+  margin-right: auto;
 }
 
-/* Hero */
+.site-navigation li:nth-child(3) {
+  margin-left: auto;
+}
+
+/* Хироу */
 
 .hero {
   display: flex;
@@ -215,7 +253,10 @@ a {
 
   position: relative;
   height: 512px;
-  background: #9fc3db url("../img/hero-background-res1200.jpg") 0 -57px no-repeat;
+  background-color: #9fc3db;
+  background-image: url("../img/hero-background-res1200.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .hero::after {
@@ -226,25 +267,22 @@ a {
   right: 0;
 
   height: 100%;
-  max-height: 57px; /* Кажется, это свойство здесь ни к чему, но я очень хотел, чтобы обводка внешней границы смотрелась кашерно :) */
+  max-height: 57px;
 
-  background-image: url("../img/mask-res1200.png"); /* Перезалил, но проблема с 1px слева и 1px снизу при zoom+ осталась */
+  background-image: url("../img/mask-res1200.png");
   background-position: bottom;
   background-size: contain;
   background-repeat: no-repeat;
-
-  /* outline: 2px dashed #999999; */
 }
 
-/* Intro */
+/* Интро */
 
 .intro {
-  /* Высота этого блока в полноразмерной версии: 216px, в резине — 211px. А как ещё при этом учитывать внутренние элементы? */
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  outline: 2px dashed red;
+  padding: 62px 0 56px;
 }
 
 .intro .title,
@@ -254,10 +292,12 @@ a {
 }
 
 .intro .title {
-  white-space: pre-line;
+  white-space: pre-line;  /* ! Что-то не так */ /* В IE добавляется дополнительный отступ сверху, от которого я избавиться не могу */
 
   margin: 0;
   padding: 0;
+
+  margin-bottom: 33px;
 }
 
 .intro .description {
@@ -265,82 +305,162 @@ a {
   padding: 0;
 }
 
-/* Преимущества */
+/* Фичи */
 
 .features {
   display: flex;
   flex-direction: column;
-
-  outline: 2px dashed red;
+  flex-wrap: wrap;
 }
 
-ol.features-list,
-ul.feature-item-properties {
+.features-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+  width: 100%;
+}
+
+.features-item {
+  color: inherit;
+  text-align: center;
+  white-space: pre-line;  /* ! Что-то не так */ /* В IE добавляется дополнительный отступ сверху, от которого я избавиться не могу */
+  word-wrap: break-word;  /* ! Что-то не так */
+
+  height: 256px;
+  max-width: 400px;
+
+  padding: 50px 45px 40px;
+  box-sizing: border-box;
+
+  flex-basis: 33%;
+  flex-grow: 2;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: #eeeeee;
+}
+
+.features-row:first-of-type .features-item,
+.features-row:nth-of-type(2) .features-item {
+  background-color: #81b3d2;
+}
+
+.features-image {
+  height: 256px;
+
+  flex-basis: 66%;
+  flex-grow: 3;
+
+  background-position: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.features-row:first-of-type .features-image {
+  background-image: url("../img/town.jpg");
+}
+
+.features-row:nth-of-type(2) .features-image {
+  background-image: url("../img/bridge.jpg");
+}
+
+.features-row:first-of-type {
+  order: 1;
+}
+
+.features-row:last-of-type {
+  order: 2;
+}
+
+.features-row:nth-of-type(2) .features-item {
+  order: 1;
+}
+
+.features-row:nth-of-type(2) {
+  order: 3;
+}
+
+.features-row:nth-of-type(3) {
+  order: 4;
+}
+
+.features-list {
+
   margin: 0;
   padding: 0;
   list-style: none;
 
+  width: 100%;
+
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+  flex-wrap: nowrap;
 }
 
-.feature-item {
+.features-list-item {
+  font-size: 0;
   text-align: center;
 
   max-width: 400px;
-  min-width: 236px;
-  height: 256px;
+  flex-basis: 33%;
+  flex-grow: 1;
 
-  margin: 0;
-  /* padding: 20px; */
-
-  box-sizing: border-box;
+  margin: 60px 45px;
+  padding: 0;
 
   display: flex;
   flex-direction: column;
-  flex-basis: 236px;
-  flex-wrap: nowrap;
   justify-content: space-around;
   align-items: center;
 }
 
-.feature-item-lg {
-  flex-grow: 1;
-
-  background-color: #81b3d2;
+.features-list-item .title {
+  margin: 32px 0;
 }
 
-.feature-item-sm {
-  background-color: #eeeeee;
+.features-list-item::before {
+  content: '';
+  top: 0;
+
+  background-repeat: no-repeat;
 }
 
-.feature-item-lg .title,
-.feature-item-lg .description,
-.feature-item-lg .num,
-.feature-item-lg .num::before,
-.feature-item-lg .num::after {
-  color: #ffffff;
+.house::before {
+  width: 75px;
+  height: 72px;
+
+  background-image: url("../img/home-icon.svg");
+  background-size: 75px 72px;
 }
 
-.feature-item-sm .title {
-  color: #000000;
-}
-.feature-item-sm .description {
-  color: #333333;
+.food::before {
+  width: 74px;
+  height: 70px;
+
+  background-image: url("../img/burger-icon.svg");
+  background-size: 74px 70px;
 }
 
-/* Приглашение поискать гостиницу */
+.gifts::before {
+  width: 64px;
+  height: 76px;
 
-.search {
+  background-image: url("../img/gift-icon.svg");
+  background-size: 64px 76px;
+}
+
+/* Приглашение найти гостиницу */
+
+.search-container {
   display: flex;
   flex-direction: column;
-
-  outline: 2px dashed #999999;
 }
 
-.call-to-action {
+.search-container .call-to-action {
   height: 290px;
   text-align: center;
 
@@ -363,8 +483,6 @@ ul.feature-item-properties {
 .call-to-action .description {
   line-height: 24px;
   white-space: pre-line;
-
-  outline: 2px dashed #999999;
 }
 
 .call-to-action button {
@@ -377,177 +495,28 @@ ul.feature-item-properties {
   margin: auto auto 0 auto;
 }
 
-.google-map {
+.search-container .search-form {
   height: 594px;
+  position: relative;
+}
+
+.map {
+  height: 100%;
   background-color: #cad7a6;
   background-image: url("../img/map.png");
   background-position: bottom;
   background-repeat: no-repeat;
 }
 
-/* Футер */
-
-.main-footer {
-  height: 120px;
-  width: 100%;
-
-  display: flex;
-  position: absolute;
-  bottom: 0;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-
-  background-color: rgba(255, 255, 255, 0.9);
-
-  z-index: 1;
-
-  outline: 2px dashed #999999;
-}
-
-
-.main-footer.inner-page {
-  position: relative;
-
-  background-color: #ffffff;
-}
-
-.main-footer > div,
-.main-footer > ul {
-  flex-basis: 0;
-}
-
-.footer-hashtag {
-  font-size: 21px;
-  line-height: 26px;
-  font-weight: bold;
-  color: #000000;
-  text-align: center;
-
-  flex-grow: 1;
-
-  /* outline: 2px dashed #999999; */
-}
-
-ul.footer-social {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
-
-  outline: 2px dashed #999999;
-}
-
-ul.footer-social li:not(:last-child) {
-  margin-right: 6px;
-}
-
-.social-split {
-  display: none;
-}
-
-.social-split path {
-  fill: #ffffff;
-}
-
-.footer-social .social-button {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-
-  width: 46px;
-  height: 48px;
-
-  background-color: #81b3d2;
-}
-
-.social-tw svg {
-  width: 17px;
-  height: 15px;
-}
-
-.social-fb svg {
-  width: 12px;
-  height: 22px;
-}
-
-.social-yt svg {
-  width: 20px;
-  height: 16px;
-}
-
-.social-button:hover {
-  background-color: #669ec0;
-}
-
-.social-button:hover svg {
-  fill: #ffffff;
-}
-
-.social-button:active {
-  background-color: #5496bd;
-}
-
-.social-button:active svg {
-  fill: #ffffff;
-  fill-opacity: 0.3;
-}
-
-.footer-copyright {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
-
-  /* outline: 2px dashed #999999; */
-}
-
-.footer-copyright span {
-  font-size: 14px;
-  line-height: 26px;
-  font-weight: 400;
-  text-transform: uppercase;
-  color: #000000;
-  margin-right: 8px;
-}
-
-.footer-copyright svg {
-  vertical-align: middle;
-}
-
-.footer-copyright a path {
-  fill: #231f20;
-}
-
-.footer-copyright a:hover path {
-  fill: #81b3d2;
-}
-
-.footer-copyright a:active path {
-  fill: #bdbbbc;
-}
-
 /* Модалка с формой на главной */
-
-.modal-hotel-search-form {
-  width: 100%;
-  bottom: 161px;
-  margin: 0 auto;
-
-  position: absolute;
-}
 
 .hotel-search-form {
   width: 568px;
-  margin: 0 auto;
   padding: 55px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -284px;
   box-sizing: border-box;
 
   display: flex;
@@ -563,16 +532,10 @@ ul.footer-social li:not(:last-child) {
   display: flex;
   flex-direction: row;
   align-items: center;
-  flex: 0 0 100%;
 
   position: relative;
 
   /* outline: 2px dashed #999999; */
-}
-
-.hotel-search-form .form-field-half {
-  flex: 0 1 50%;
-  outline: 2px dashed red;
 }
 
 .hotel-search-form input {
@@ -590,8 +553,15 @@ ul.footer-social li:not(:last-child) {
   background-color: #f2f2f2;
 }
 
+.hotel-search-form input[type=text]::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
 .hotel-search-form .input-lg {
   height: 100%;
+  /* width: 346px; */
 
   box-sizing: border-box;
   padding-left: 13px;
@@ -627,10 +597,11 @@ ul.footer-social li:not(:last-child) {
 }
 
 .hotel-search-form .form-field label[for="number-of-adults-field"] {
-  margin-right: 41px;
+  margin-right: 37px;
 }
 
 .hotel-search-form .form-field label[for="number-of-children-field"] {
+  margin-left: auto;
   margin-right: 27px;
 }
 
@@ -642,32 +613,45 @@ ul.footer-social li:not(:last-child) {
 .hotel-search-form input[type="text"]:focus {
   background-color: #ffffff;
   border: 2px solid #e5e5e5;
-  outline: 0;
+  outline: none;
 }
 
-.hotel-search-form .form-field-half > button,
-.hotel-search-form .form-field-half > input {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.hotel-search-form .form-field-half .math-symbol-minus {
-  order: 1;
-}
-
-.hotel-search-form .form-field-half input {
-  order: 2;
-}
-
-.hotel-search-form .form-field-half input::-webkit-outer-spin-button,
-.hotel-search-form .form-field-half input::-webkit-inner-spin-button {
+.hotel-search-form input[type="number"]::-webkit-outer-spin-button,
+.hotel-search-form input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-.hotel-search-form .form-field-half .math-symbol-plus {
+.hotel-search-form input[type="number"] {
+  box-sizing: border-box;
+}
+
+.hotel-search-form .form-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.hotel-search-form .form-row .form-field {
+  flex-basis: 50%;
+  margin-bottom: 0;
+
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.hotel-search-form .form-field .math-symbol-minus {
+  order: 1;
+}
+
+.hotel-search-form .form-field input {
+  order: 2;
+}
+
+.hotel-search-form .form-field .math-symbol-plus {
   order: 3;
 }
 
@@ -686,15 +670,15 @@ button.calendar-icon {
   height: 22px;
 
   position: absolute;
-  right: 9px;
+  right: 11px;
+  top: 8px;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  border: 0;
-  background: 0;
-  outline: 2px dashed red;
+  border: none;
+  background: none;
 }
 
 button.calendar-icon svg {
@@ -719,18 +703,29 @@ button.calendar-icon:active svg {
   font-size: 14px;
   line-height: 26px;
 
-  border: 0;
+  border: none;
+  outline: none;
   padding: 0;
   margin: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 
   background-color: #f2f2f2;
 }
 
+.hotel-search-form .input-control,
+.hotel-search-form .calendar-icon ,
+.hotel-search-form .input-control:hover,
+.hotel-search-form .calendar-icon:hover,
 .hotel-search-form .input-control:active,
-.hotel-search-form .input-control:focus,
 .hotel-search-form .calendar-icon:active,
- .hotel-search-form .calendar-icon:focus {
-  outline: 0;
+.hotel-search-form .input-control:focus,
+.hotel-search-form .calendar-icon:focus {
+  outline: none;
+  cursor: pointer;
 }
 
 .input-control.math-symbol-minus svg {
@@ -747,10 +742,6 @@ button.calendar-icon:active svg {
   stroke: #a9a9a9;
 }
 
-.input-control:focus {
-  /* outline: 0; */
-}
-
 .input-control:hover svg {
   stroke: #000000;
 }
@@ -759,6 +750,162 @@ button.calendar-icon:active svg {
   stroke: #81b3d2;
 }
 
+/* Футер */
+
+.main-footer {
+  height: 120px;
+  width: 100%;
+
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  background-color: rgba(255, 255, 255, 0.9);
+
+  z-index: 1;
+}
+
+.main-footer.inner-page {
+  position: relative;
+
+  background-color: #ffffff;
+}
+
+.main-footer > div,
+.main-footer > ul {
+  flex-basis: 0;
+}
+
+.footer-hashtag {
+  font-size: 21px;
+  line-height: 26px;
+  font-weight: bold;
+  color: #000000;
+  text-align: center;
+
+  flex-grow: 1;
+}
+
+ul.footer-social {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+ul.footer-social li:not(:last-child) {
+  margin-right: 6px;
+}
+
+.footer-social .social-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  width: 46px;
+  height: 48px;
+
+  background-color: #81b3d2;
+}
+
+.social-tw svg {
+  width: 17px;
+  height: 15px;
+
+  pointer-events: none;
+}
+
+.social-fb svg {
+  width: 12px;
+  height: 22px;
+
+  pointer-events: none;
+}
+
+.social-yt svg {
+  width: 20px;
+  height: 16px;
+
+  pointer-events: none;
+}
+
+.social-button:hover {
+  background-color: #669ec0;
+}
+
+.social-button svg {
+  fill: #ffffff;
+  pointer-events: none;
+}
+
+.social-button:hover svg {
+  fill: #ffffff;
+  pointer-events: none;
+}
+
+.social-button:active {
+  background-color: #5496bd;
+}
+
+.social-button:active svg {
+  fill: #ffffff;
+  fill-opacity: 0.3;
+  pointer-events: none;
+}
+
+.footer-copyright {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.footer-copyright span {
+  font-size: 14px;
+  line-height: 26px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #000000;
+  margin-right: 8px;
+}
+
+.footer-copyright svg {
+  vertical-align: middle;
+  pointer-events: none;
+}
+
+.footer-copyright a path {
+  fill: #231f20;
+  pointer-events: none;
+}
+
+.footer-copyright a:hover path {
+  fill: #81b3d2;
+  pointer-events: none;
+}
+
+.footer-copyright a:active path {
+  fill: #bdbbbc;
+  pointer-events: none;
+}
+
+/*
+  ====== Спрайты ======
+*/
+
+.social-split {
+  display: none;
+}
 
 /*
   ====== Каталог ======
