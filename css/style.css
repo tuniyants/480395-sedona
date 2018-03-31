@@ -729,13 +729,13 @@ button.calendar-icon:active svg {
 }
 
 .input-control.math-symbol-minus svg {
-  width: 12px;
-  height: 3px;
+  width: 15px;
+  height: 15px;
 }
 
 .input-control.math-symbol-plus svg {
-  width: 11px;
-  height: 11px;
+  width: 15px;
+  height: 15px;
 }
 
 .input-control svg {
