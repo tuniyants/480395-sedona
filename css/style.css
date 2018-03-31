@@ -1328,13 +1328,13 @@ ul.footer-social li:not(:last-child) {
 }
 
 .house-description a:first-child {
-  margin-right: 6px;
+  margin-right: 3px; /* Здесь на самом деле 6px, просто появляются фантомные -3px, потому что inline-block. Результат разницы 3px */
 }
 
 .house-description span.type {
   width: 100px;
   display: inline-block;
-  margin-right: 16px;
+  margin-right: 13px; /* Здесь на самом деле 16px, но результат аналогичен тому, что выше */
 }
 
 .house-review {
