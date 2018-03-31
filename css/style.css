@@ -960,6 +960,10 @@ ul.footer-social li:not(:last-child) {
   margin: 14px 0 19px;
 }
 
+.form-group:last-child {
+  margin-top: 14px;
+}
+
 .form-group legend {
   font-size: 16px;
   /* line-height: 21px; */
@@ -1095,7 +1099,7 @@ ul.footer-social li:not(:last-child) {
   width: 100%;
   height: 32px;
 
-  margin-bottom: 32px;
+  margin-bottom: 22px;
   position: relative;
 
   border: 2px solid #ffffff;
@@ -1147,6 +1151,7 @@ ul.footer-social li:not(:last-child) {
 
   width: 133px;
   height: 32px;
+  box-sizing: content-box;
 
   padding: 0;
   margin: 34px auto 35px auto;
@@ -1334,7 +1339,7 @@ ul.footer-social li:not(:last-child) {
 
   display: inline-block;
 
-  margin-right: 3px;
+  margin-right: 2px;
 
   background-image: url("../img/star.svg");
   background-position: 0 0;
@@ -1357,6 +1362,7 @@ ul.footer-social li:not(:last-child) {
   font-size: 14px;
   line-height: 27px;
   color: #666666;
+  text-align: center;
 
   padding: 0 16px 0 13px;
   margin: 0;
