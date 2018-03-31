@@ -646,6 +646,10 @@ a {
   align-items: center;
 }
 
+.form-field button:active svg {
+  position: relative; /* Это чтобы убрать трехмерный эффект при нажатии на button в ie */
+}
+
 .hotel-search-form .form-field .math-symbol-minus {
   order: 1;
 }
