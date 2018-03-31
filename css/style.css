@@ -19,7 +19,9 @@ a {
   cursor: pointer;
 }
 
-/* Скрывает скрытые заголовки */
+/*
+  ====== Скрывает скрытые заголовки ======
+*/
 
 .visually-hidden {
   position: absolute;
@@ -29,7 +31,9 @@ a {
   margin: -1px;
 }
 
-/* Управляет основным слоем */
+/*
+  ====== Управляет основным слоем ======
+*/
 
 .layout {
   max-width: 1200px;
@@ -42,7 +46,9 @@ a {
   box-shadow: 0px 5px 15px 0px rgba(0, 1, 1, 0.2);
 }
 
-/* Кнопки */
+/*
+  ====== Кнопки ======
+*/
 
 .button {
   font-size: 14px;
@@ -102,7 +108,9 @@ a {
   outline: none;
 }
 
-/* Подготовка основного текста */
+/*
+  ====== Основной текст ======
+*/
 
 .title {
   font-size: 21px;
@@ -164,7 +172,9 @@ a {
   color: #ffffff;
 }
 
-/* Хэдер */
+/*
+  ====== Хэдер ======
+*/
 
 .main-navigation {
   font-size: 14px;
@@ -224,7 +234,7 @@ a {
 }
 
 .site-navigation li {
-  flex-basis: 23%; /* ! В ТЗ — 20%, но тогда не соответствует макету */
+  flex-basis: 23%; /* В ТЗ — 20%, но тогда не соответствует макету */
 }
 
 .site-navigation li:first-child,
@@ -245,7 +255,9 @@ a {
   margin-left: auto;
 }
 
-/* Хироу */
+/*
+  ====== Хироу ======
+*/
 
 .hero {
   display: flex;
@@ -276,7 +288,9 @@ a {
   background-repeat: no-repeat;
 }
 
-/* Интро */
+/*
+  ====== Интро ======
+*/
 
 .intro {
   display: flex;
@@ -306,7 +320,9 @@ a {
   padding: 0;
 }
 
-/* Фичи */
+/*
+  ====== Фичи ======
+*/
 
 .features {
   display: flex;
@@ -325,8 +341,8 @@ a {
 .features-item {
   color: inherit;
   text-align: center;
-  white-space: pre-line;  /* ! Что-то не так */ /* В IE добавляется дополнительный отступ сверху, от которого я избавиться не могу */
-  word-wrap: break-word;  /* ! Что-то не так */
+  white-space: pre-line;  /* ! Что-то не так — в IE добавляется дополнительный отступ сверху, от которого я избавиться не могу */
+  word-wrap: break-word;  /* ! Что-то не так — в IE добавляется дополнительный отступ сверху, от которого я избавиться не могу */
 
   height: 256px;
   max-width: 400px;
@@ -454,7 +470,9 @@ a {
   background-size: 64px 76px;
 }
 
-/* Приглашение найти гостиницу */
+/*
+  ====== Приглашение найти гостиницу ======
+*/
 
 .search-container {
   display: flex;
@@ -503,13 +521,20 @@ a {
 
 .map {
   height: 100%;
+  width: 100%;
+
+  frameborder: 0;
+  border: none;
+
   background-color: #cad7a6;
   background-image: url("../img/map.png");
   background-position: bottom;
   background-repeat: no-repeat;
 }
 
-/* Модалка с формой на главной */
+/*
+  ====== Модалка с формой на главной ======
+*/
 
 .hotel-search-form {
   width: 568px;
@@ -536,8 +561,6 @@ a {
   align-items: center;
 
   position: relative;
-
-  /* outline: 2px dashed #999999; */
 }
 
 .hotel-search-form input {
@@ -757,7 +780,9 @@ button.calendar-icon:active svg {
   stroke: #81b3d2;
 }
 
-/* Футер */
+/*
+  ====== Футер ======
+*/
 
 .main-footer {
   height: 120px;
@@ -777,7 +802,6 @@ button.calendar-icon:active svg {
 
 .main-footer.inner-page {
   position: relative;
-
   background-color: #ffffff;
 }
 
@@ -915,10 +939,8 @@ ul.footer-social li:not(:last-child) {
 }
 
 /*
-  ====== Каталог ======
+  ====== Форма поиска по фильтрам ======
 */
-
-/* Форма поиска по фильтрам */
 
 .search-filters {
   /* height: 217px; */ /* Это свойство использовалось для тестов */
@@ -1181,7 +1203,9 @@ ul.footer-social li:not(:last-child) {
   cursor: pointer;
 }
 
-/* Сортировка результатов поиска в каталоге */
+/*
+  ====== Сортировка результатов поиска в каталоге ======
+*/
 
 .search-results-sorting {
   display: flex;
@@ -1284,7 +1308,9 @@ ul.footer-social li:not(:last-child) {
   fill: #b2b2b2;
 }
 
-/* Результаты поиска */
+/*
+  ====== Результат поиска ======
+*/
 
 .search-results-row {
   height: 90px;
@@ -1306,7 +1332,7 @@ ul.footer-social li:not(:last-child) {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-between; /* Есть проблема при работе с IE. Кажется, всеми элементами внутри придётся управлять через margin */
 }
 
 .house-description h3 {
@@ -1345,8 +1371,6 @@ ul.footer-social li:not(:last-child) {
   align-items: flex-end;
 }
 
-/* Кажется, вот эта реализация неправильная */
-
 .house-review .star {
   width: 18px;
   height: 17px;
@@ -1364,8 +1388,6 @@ ul.footer-social li:not(:last-child) {
 .house-review .star:last-child {
   margin-right: 0;
 }
-
-/* Конец тому, что кажется */
 
 .house-review .rate {
   background-color: #f2f2f2;
