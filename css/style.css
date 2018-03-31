@@ -626,6 +626,7 @@ a {
 
 .hotel-search-form input[type="number"] {
   box-sizing: border-box;
+  -moz-appearance: textfield; /* Чтобы скрыть стрелки для FireFox */
 }
 
 .hotel-search-form .form-row {
