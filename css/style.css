@@ -123,7 +123,7 @@ a {
   margin: 0;
   padding: 0;
 
-  width: 100%;  /* Беp этого свойства содержимое параграфа уходит за пределы контейнера в IE */
+  width: 100%;  /* Без этого свойства содержимое параграфа уходит за пределы контейнера в IE */
 }
 
 .num {
@@ -224,7 +224,7 @@ a {
 }
 
 .site-navigation li {
-  flex-basis: 23%;
+  flex-basis: 23%; /* ! В ТЗ — 20%, но тогда не соответствует макету */
 }
 
 .site-navigation li:first-child,
@@ -566,7 +566,7 @@ a {
   /* width: 346px; */
 
   box-sizing: border-box;
-  padding-left: 13px;
+  padding: 0 45px 0 13px;
 
   flex-grow: 1;
 }
@@ -1094,9 +1094,11 @@ ul.footer-social li:not(:last-child) {
 }
 
 .slider .slider-handle:hover {
-  background-image: url("../img/filter-button-hover.svg");
+  top: -10px;
+
   background-size: 22px 24px;
   background-repeat: no-repeat;
+  cursor: pointer;
 }
 
 .slider .slider-handle:first-child {
