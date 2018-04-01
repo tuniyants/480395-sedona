@@ -343,8 +343,8 @@ a {
 .features-item {
   color: inherit;
   text-align: center;
-  white-space: pre-line;
-  word-wrap: break-word;
+  /* white-space: pre-line; */
+  /* hyphens: auto; */
 
   height: 256px;
   max-width: 400px;
@@ -355,11 +355,15 @@ a {
   flex-basis: 33%;
   flex-grow: 2;
 
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; */
 
   background-color: #eeeeee;
+}
+
+.features-row:last-of-type .features-item {
+  padding: 50px 5% 40px 5%; /* Но тогда на резине текст отображается неправильно */
 }
 
 .features-row:first-of-type .features-item,
@@ -367,11 +371,23 @@ a {
   background-color: #81b3d2;
 }
 
-.features-item .title,
+/* .features-item .title,
 .features-item .num,
 .features-item .num::before,
 .features-item .num::after {
   margin-bottom: 22px;
+} */
+
+.features-item .title {
+  margin: 0 auto;
+  
+  text-align: center;
+  white-space: pre-line;
+}
+
+.features-item .num {
+  display: block;
+  margin: 22px 0;
 }
 
 .features-image {
@@ -1310,9 +1326,9 @@ ul.footer-social li:not(:last-child) {
 .house-description {
   margin-right: auto;
 
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  flex-wrap: wrap; */
 }
 
 .house-description .name {
