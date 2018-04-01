@@ -266,6 +266,7 @@ a {
 
   position: relative;
   height: 512px;
+  height: 508px;  /* ! Это новый размер */
   background-color: #9fc3db;
   background-image: url("../img/hero-background-res1200.jpg");
   background-size: cover;
@@ -295,24 +296,21 @@ a {
 .intro {
   display: flex;
   flex-direction: column;
-  align-items: center;
 
-  padding: 62px 0 56px;
+  padding: 60px 0 51px 0;
 }
 
 .intro .title,
 .intro .description {
-  line-height: 26px;
   text-align: center;
+  line-height: 26px;
 }
 
 .intro .title {
-  white-space: pre-line;  /* ! Что-то не так */ /* В IE добавляется дополнительный отступ сверху, от которого я избавиться не могу */
+  white-space: pre-line;
 
-  margin: 0;
+  margin: 0 0 28px 0;
   padding: 0;
-
-  margin-bottom: 33px;
 }
 
 .intro .description {
@@ -338,16 +336,20 @@ a {
   width: 100%;
 }
 
+.features-row:nth-of-type(3) .features-item {
+  order: 1;
+}
+
 .features-item {
   color: inherit;
   text-align: center;
-  white-space: pre-line;  /* ! Что-то не так — в IE добавляется дополнительный отступ сверху, от которого я избавиться не могу */
-  word-wrap: break-word;  /* ! Что-то не так — в IE добавляется дополнительный отступ сверху, от которого я избавиться не могу */
+  white-space: pre-line;
+  word-wrap: break-word;
 
   height: 256px;
   max-width: 400px;
 
-  padding: 50px 45px 40px;
+  padding: 50px 4% 40px 4%;
   box-sizing: border-box;
 
   flex-basis: 33%;
@@ -355,15 +357,21 @@ a {
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
 
   background-color: #eeeeee;
 }
 
 .features-row:first-of-type .features-item,
-.features-row:nth-of-type(2) .features-item {
+.features-row:nth-of-type(3) .features-item {
   background-color: #81b3d2;
+}
+
+.features-item .title,
+.features-item .num,
+.features-item .num::before,
+.features-item .num::after {
+  margin-bottom: 22px;
 }
 
 .features-image {
@@ -381,35 +389,13 @@ a {
   background-image: url("../img/town.jpg");
 }
 
-.features-row:nth-of-type(2) .features-image {
+.features-row:nth-of-type(3) .features-image {
   background-image: url("../img/bridge.jpg");
 }
 
-.features-row:first-of-type {
-  order: 1;
-}
-
-.features-row:last-of-type {
-  order: 2;
-}
-
-.features-row:nth-of-type(2) .features-item {
-  order: 1;
-}
-
-.features-row:nth-of-type(2) {
-  order: 3;
-}
-
-.features-row:nth-of-type(3) {
-  order: 4;
-}
-
 .features-list {
-
   margin: 0;
   padding: 0;
-  list-style: none;
 
   width: 100%;
 
@@ -426,46 +412,39 @@ a {
   flex-basis: 33%;
   flex-grow: 1;
 
-  margin: 60px 45px;
+  margin: 58px 4% 6.5%;
   padding: 0;
 
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   align-items: center;
 }
 
 .features-list-item .title {
-  margin: 32px 0;
+  margin: 30px 0 22px 0;
 }
 
 .features-list-item::before {
   content: '';
   top: 0;
+  width: 75px;
+  height: 76px;
 
   background-repeat: no-repeat;
+  background-position: bottom;
 }
 
 .house::before {
-  width: 75px;
-  height: 72px;
-
   background-image: url("../img/home-icon.svg");
   background-size: 75px 72px;
 }
 
 .food::before {
-  width: 74px;
-  height: 70px;
-
   background-image: url("../img/burger-icon.svg");
   background-size: 74px 70px;
 }
 
 .gifts::before {
-  width: 64px;
-  height: 76px;
-
   background-image: url("../img/gift-icon.svg");
   background-size: 64px 76px;
 }
@@ -496,7 +475,7 @@ a {
   font-weight: bold;
   color: #000000;
 
-  margin-top: 50px;
+  margin: 54px 0 22px 0;
 }
 
 .call-to-action .description {
@@ -589,7 +568,7 @@ a {
   /* width: 346px; */
 
   box-sizing: border-box;
-  padding: 0 45px 0 13px;
+  padding: 0 45px 0 12px;
 
   flex-grow: 1;
 }
@@ -614,15 +593,15 @@ a {
 }
 
 .hotel-search-form .form-field label[for="arrival-date-field"] {
-  margin-right: 21px;
+  margin-right: 23px;
 }
 
 .hotel-search-form .form-field label[for="departure-date-field"] {
-  margin-right: 17px;
+  margin-right: 19px;
 }
 
 .hotel-search-form .form-field label[for="number-of-adults-field"] {
-  margin-right: 37px;
+  margin-right: 39px;
 }
 
 .hotel-search-form .form-field label[for="number-of-children-field"] {
@@ -700,7 +679,7 @@ button.calendar-icon {
   height: 22px;
 
   position: absolute;
-  right: 11px;
+  right: 9px;
   top: 8px;
 
   display: flex;
@@ -963,7 +942,6 @@ ul.footer-social li:not(:last-child) {
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: flex-start;
-  align-items: center;
 
   margin: 0;
   padding: 0;
@@ -983,6 +961,7 @@ ul.footer-social li:not(:last-child) {
 
 .form-group:last-child {
   margin-left: auto;
+  margin-top: 14px;
   flex-basis: 33%;
   max-width: 318px;
 }
@@ -990,10 +969,6 @@ ul.footer-social li:not(:last-child) {
 .form-group:first-child,
 .form-group:nth-child(2) {
   margin: 14px 0 19px 0;
-}
-
-.form-group:last-child {
-  margin-top: 14px;
 }
 
 .form-group legend {
@@ -1005,6 +980,10 @@ ul.footer-social li:not(:last-child) {
 
   /* height: 46px; */
   margin-right: 0;
+}
+
+.form-group:last-child legend {
+  height: 42px;
 }
 
 .form-group-items {
@@ -1108,7 +1087,7 @@ ul.footer-social li:not(:last-child) {
   position: absolute;
   z-index: 2;
   top: -9px;
-  margin-left: -11px;
+  margin-left: -1px;
 
   background-image: url("../img/filter-button.svg");
   background-size: 20px 22px;
@@ -1133,13 +1112,13 @@ ul.footer-social li:not(:last-child) {
 
 .num-range {
   width: 100%;
-  height: 32px;
 
   margin-bottom: 22px;
   position: relative;
 
   border: 2px solid #ffffff;
   border-radius: 2px;
+  box-sizing: border-box;
 
   display: flex;
   flex-direction: row;
@@ -1163,6 +1142,8 @@ ul.footer-social li:not(:last-child) {
   line-height: inherit;
   color: #ffffff;
   flex-basis: 50%;
+
+  height: 32px;
 
   display: flex;
   flex-direction: row;
@@ -1210,12 +1191,13 @@ ul.footer-social li:not(:last-child) {
 .search-results-sorting {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  /* align-items: center; */
   flex-wrap: nowrap;
 
-  height: 86px;
+  /* height: 86px; */
   padding: 0 6%;
   border-bottom: 1px solid #e5e5e5;
+  box-sizing: border-box;
 }
 
 .search-results-sorting .found {
@@ -1224,6 +1206,7 @@ ul.footer-social li:not(:last-child) {
   font-weight: bold;
   color: #000000;
 
+  padding: 30px 0 30px;
   margin-right: 50px;
 }
 
@@ -1233,29 +1216,27 @@ ul.footer-social li:not(:last-child) {
   font-weight: 400;
   color: #000000;
 
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  padding: 36px 0 29px;
 }
 
 .sort-filters ul {
+  font-size: inherit;
   list-style: none;
-
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  display: inline-block;
 
   padding: 0;
   margin: 0;
 }
 
 .sort-filters li {
+  display: inline-block;
+
   margin: 0;
   padding: 0;
 }
 
 .sort-by-type-list li:not(:last-child) {
-  margin-right: 35px;
+  margin-right: 32px;
 }
 
 .sort-by-type {
@@ -1263,11 +1244,11 @@ ul.footer-social li:not(:last-child) {
 }
 
 .sort-by-type span {
-  margin-right: 41px;
+  margin-right: 38px;
 }
 
 .sort-by-order-list li:not(:last-child) {
-  margin-right: 12px;
+  margin-right: 9px;
 }
 
 .sort-by-type a {
@@ -1332,10 +1313,9 @@ ul.footer-social li:not(:last-child) {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  justify-content: space-between; /* Есть проблема при работе с IE. Кажется, всеми элементами внутри придётся управлять через margin */
 }
 
-.house-description h3 {
+.house-description .name {
   font-size: 21px;
   /* line-height: 26px; */
   font-weight: bold;
@@ -1345,22 +1325,30 @@ ul.footer-social li:not(:last-child) {
   padding: 0;
 }
 
-.house-description h3:hover {
+.house-description .name:hover {
   color: #81b3d2;
 }
 
-.house-description h3:active {
+.house-description .name:active {
   color: rgba(0, 0, 0, 0.3);
 }
 
-.house-description a:first-child {
-  margin-right: 3px; /* Здесь на самом деле 6px, просто появляются фантомные -3px, потому что inline-block. Результат разницы 3px */
+.name a {
+  color: inherit;
 }
 
-.house-description span.type {
+.house-description .button:first-child {
+  margin-right: 3px;
+}
+
+.house-description .type {
   width: 100px;
   display: inline-block;
-  margin-right: 13px; /* Здесь на самом деле 16px, но результат аналогичен тому, что выше */
+  margin-right: 13px;
+}
+
+.house-description-row:first-of-type {
+  margin: 10px 0;
 }
 
 .house-review {
